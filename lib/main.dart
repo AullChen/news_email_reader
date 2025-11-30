@@ -13,6 +13,13 @@ import 'package:sqflite/sqflite.dart' as sqflite;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
+  // 性能优化：设置首选方向（如果需要）
+  // await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  
+  // 性能优化：优化图片缓存
+  PaintingBinding.instance.imageCache.maximumSize = 100;
+  PaintingBinding.instance.imageCache.maximumSizeBytes = 50 * 1024 * 1024; // 50MB
+  
   // 禁用enough_mail库的调试输出
   if (kDebugMode) {
     // 启用分层日志记录
@@ -34,6 +41,7 @@ void main() async {
       }
     });
   }
+  
   final isDesktop = !kIsWeb &&
       (defaultTargetPlatform == TargetPlatform.windows ||
        defaultTargetPlatform == TargetPlatform.linux ||

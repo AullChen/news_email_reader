@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:share_plus/share_plus.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/models/email_message.dart';
 import '../../../../core/repositories/email_repository.dart';
 import '../../../../core/repositories/account_repository.dart';
-import '../../../../core/services/ai_service.dart';
-import '../../../../core/services/translation_service.dart';
 import '../../../../core/services/permission_service.dart';
 import '../../../../core/utils/email_sort_utils.dart';
 import '../../../../core/widgets/swipeable_email_card.dart';
+import '../../../../core/widgets/optimized_email_list.dart';
 import '../../../../core/constants/app_version.dart';
 
 import '../../../reader/presentation/pages/email_reader_page.dart';
@@ -114,7 +112,7 @@ class _EnhancedHomePageState extends ConsumerState<EnhancedHomePage>
     await _refreshEmails();
   }
 
-  /// 加载邮件
+  /// 加载邮件（优化版）
   Future<void> _loadEmails() async {
     if (_isLoading) return;
 
@@ -126,49 +124,55 @@ class _EnhancedHomePageState extends ConsumerState<EnhancedHomePage>
       // 从本地加载所有邮件
       final emails = await _emailRepository.getUnarchivedEmails();
       
-      setState(() {
-        _allEmails = emails;
-        _currentPage = 0;
-        _hasMoreData = true;
-      });
+      // 一次性更新所有状态，减少 setState 调用
+      if (mounted) {
+        setState(() {
+          _allEmails = emails;
+          _currentPage = 0;
+          _hasMoreData = true;
+          _isLoading = false;
+        });
+      }
 
       _applyFilterAndSort();
       _loadPage();
     } catch (e) {
       if (mounted) {
-        _showErrorDialog('加载邮件失败', e.toString());
-      }
-    } finally {
-      if (mounted) {
         setState(() {
           _isLoading = false;
         });
+        _showErrorDialog('加载邮件失败', e.toString());
       }
     }
   }
 
-  /// 应用筛选和排序
+  /// 应用筛选和排序（优化版）
   void _applyFilterAndSort() {
     final filtered = EmailSortUtils.filterEmails(_allEmails, _filterType);
     final sorted = EmailSortUtils.sortEmails(filtered, _sortType);
     
-    setState(() {
-      _allEmails = sorted;
-      _currentPage = 0;
-      _displayedEmails.clear();
-      _hasMoreData = true;
-    });
+    // 一次性更新所有状态
+    if (mounted) {
+      setState(() {
+        _allEmails = sorted;
+        _currentPage = 0;
+        _displayedEmails.clear();
+        _hasMoreData = true;
+      });
+    }
   }
 
-  /// 加载一页数据
+  /// 加载一页数据（优化版）
   void _loadPage() {
     final startIndex = _currentPage * _pageSize;
     final endIndex = startIndex + _pageSize;
 
     if (startIndex >= _allEmails.length) {
-      setState(() {
-        _hasMoreData = false;
-      });
+      if (mounted) {
+        setState(() {
+          _hasMoreData = false;
+        });
+      }
       return;
     }
 
@@ -177,29 +181,36 @@ class _EnhancedHomePageState extends ConsumerState<EnhancedHomePage>
       endIndex > _allEmails.length ? _allEmails.length : endIndex,
     );
 
-    setState(() {
-      _displayedEmails.addAll(pageEmails);
-      _currentPage++;
-      _hasMoreData = endIndex < _allEmails.length;
-    });
+    // 一次性更新所有状态
+    if (mounted) {
+      setState(() {
+        _displayedEmails.addAll(pageEmails);
+        _currentPage++;
+        _hasMoreData = endIndex < _allEmails.length;
+      });
+    }
   }
 
-  /// 加载更多邮件
+  /// 加载更多邮件（优化版）
   Future<void> _loadMoreEmails() async {
     if (_isLoadingMore || !_hasMoreData) return;
 
-    setState(() {
-      _isLoadingMore = true;
-    });
+    if (mounted) {
+      setState(() {
+        _isLoadingMore = true;
+      });
+    }
 
-    // 模拟网络延迟
-    await Future.delayed(const Duration(milliseconds: 500));
+    // 减少延迟，提升响应速度
+    await Future.delayed(const Duration(milliseconds: 200));
 
     _loadPage();
 
-    setState(() {
-      _isLoadingMore = false;
-    });
+    if (mounted) {
+      setState(() {
+        _isLoadingMore = false;
+      });
+    }
   }
 
   /// 同步所有活跃账户
@@ -373,51 +384,43 @@ class _EnhancedHomePageState extends ConsumerState<EnhancedHomePage>
   }
 
   Widget _buildFilterBar() {
-    return Container(
+    return SizedBox(
       height: 50,
-      padding: const EdgeInsets.symmetric(vertical: 8),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         itemCount: EmailFilterType.values.length,
         itemBuilder: (context, index) {
           final filter = EmailFilterType.values[index];
           final isSelected = filter == _filterType;
           
-          return GestureDetector(
-            onTap: () {
-              if (_filterType != filter) {
-                setState(() {
-                  _filterType = filter;
-                });
-                _applyFilterAndSort();
-                _loadPage();
-              }
-            },
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              margin: const EdgeInsets.only(right: 12),
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(
-                color: isSelected
-                    ? AppTheme.primaryColor
-                    : AppTheme.surfaceColor,
+          return Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: Material(
+              color: isSelected ? AppTheme.primaryColor : AppTheme.surfaceColor,
+              borderRadius: BorderRadius.circular(20),
+              elevation: isSelected ? 2 : 0,
+              child: InkWell(
+                onTap: () {
+                  if (_filterType != filter) {
+                    setState(() {
+                      _filterType = filter;
+                    });
+                    _applyFilterAndSort();
+                    _loadPage();
+                  }
+                },
                 borderRadius: BorderRadius.circular(20),
-                boxShadow: isSelected
-                    ? [
-                        BoxShadow(
-                          color: AppTheme.primaryColor.withValues(alpha: 0.3),
-                          blurRadius: 8,
-                          offset: const Offset(0, 2),
-                        ),
-                      ]
-                    : null,
-              ),
-              child: Text(
-                filter.displayName,
-                style: TextStyle(
-                  color: isSelected ? Colors.white : AppTheme.textSecondaryColor,
-                  fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Text(
+                    filter.displayName,
+                    style: TextStyle(
+                      color: isSelected ? Colors.white : AppTheme.textSecondaryColor,
+                      fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
+                      fontSize: 13,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -467,33 +470,17 @@ class _EnhancedHomePageState extends ConsumerState<EnhancedHomePage>
 
     return RefreshIndicator(
       onRefresh: _refreshEmails,
-      child: ListView.builder(
-        controller: _scrollController,
-        padding: const EdgeInsets.all(16),
-        itemCount: _displayedEmails.length + (_hasMoreData ? 1 : 0),
-        itemBuilder: (context, index) {
-          if (index == _displayedEmails.length) {
-            // 加载更多指示器
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: _isLoadingMore
-                    ? const CircularProgressIndicator()
-                    : const SizedBox.shrink(),
-              ),
-            );
-          }
-
-          final email = _displayedEmails[index];
-          return SwipeableEmailCard(
-            email: email,
-            onTap: () => _openEmailReader(email),
-            onStar: () => _toggleStar(email),
-            onArchive: () => _archiveEmail(email),
-            onDelete: () => _deleteEmail(email),
-            onMarkRead: () => _toggleRead(email),
-          );
-        },
+      child: OptimizedEmailList(
+        emails: _displayedEmails,
+        onEmailTap: _openEmailReader,
+        onStar: _toggleStar,
+        onArchive: _archiveEmail,
+        onDelete: _deleteEmail,
+        onMarkRead: _toggleRead,
+        onLoadMore: _loadMoreEmails,
+        hasMore: _hasMoreData,
+        isLoading: _isLoadingMore,
+        scrollController: _scrollController,
       ),
     );
   }
