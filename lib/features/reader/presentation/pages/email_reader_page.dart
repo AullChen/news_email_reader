@@ -36,12 +36,58 @@ class _EmailReaderPageState extends State<EmailReaderPage> {
   bool _plainTextMode = false;
   late EmailMessage _currentEmail;
   final EmailRepository _emailRepository = EmailRepository();
+  final ScrollController _scrollController = ScrollController();
+  
+  // 阅读进度
+  double _readingProgress = 0.0;
+  bool _hasRestoredProgress = false;
 
   @override
   void initState() {
     super.initState();
     _currentEmail = widget.email;
+    _readingProgress = _currentEmail.readingProgress ?? 0.0;
     _initializeWebView();
+    _scrollController.addListener(_onScroll);
+  }
+  
+  void _onScroll() {
+    if (_scrollController.hasClients) {
+      final maxScroll = _scrollController.position.maxScrollExtent;
+      final currentScroll = _scrollController.position.pixels;
+      
+      if (maxScroll > 0) {
+        final progress = (currentScroll / maxScroll).clamp(0.0, 1.0);
+        if ((progress - _readingProgress).abs() > 0.05) {
+          _readingProgress = progress;
+          _saveReadingProgress();
+        }
+      }
+    }
+  }
+  
+  Future<void> _saveReadingProgress() async {
+    try {
+      await _emailRepository.updateReadingProgress(
+        _currentEmail.messageId,
+        _readingProgress,
+      );
+    } catch (e) {
+      // 静默失败
+    }
+  }
+  
+  void _restoreReadingProgress() {
+    if (_hasRestoredProgress || _readingProgress == 0.0) return;
+    
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        final maxScroll = _scrollController.position.maxScrollExtent;
+        final targetScroll = maxScroll * _readingProgress;
+        _scrollController.jumpTo(targetScroll.clamp(0.0, maxScroll));
+        _hasRestoredProgress = true;
+      }
+    });
   }
 
   Future<void> _initializeWebView() async {
@@ -112,6 +158,7 @@ class _EmailReaderPageState extends State<EmailReaderPage> {
 
   @override
   void dispose() {
+    _scrollController.dispose();
     if (Platform.isWindows) {
       _windowsController.dispose();
     }
@@ -183,13 +230,26 @@ class _EmailReaderPageState extends State<EmailReaderPage> {
     if (_plainTextMode) {
       final text = _currentEmail.contentText ??
           (_currentEmail.contentHtml != null ? _htmlToPlainText(_currentEmail.contentHtml!) : '');
+      
+      // 恢复阅读进度
+      _restoreReadingProgress();
+      
       return SingleChildScrollView(
+        controller: _scrollController,
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
+                if (_readingProgress > 0.05)
+                  Text(
+                    '阅读进度: ${(_readingProgress * 100).toInt()}%',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: AppTheme.textSecondaryColor,
+                    ),
+                  ),
                 const Spacer(),
                 TextButton.icon(
                   onPressed: () {
@@ -228,6 +288,14 @@ class _EmailReaderPageState extends State<EmailReaderPage> {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
+              if (_readingProgress > 0.05)
+                Text(
+                  '阅读进度: ${(_readingProgress * 100).toInt()}%',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppTheme.textSecondaryColor,
+                  ),
+                ),
               const Spacer(),
               TextButton.icon(
                 onPressed: () {

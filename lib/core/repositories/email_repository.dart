@@ -179,7 +179,9 @@ class EmailRepository {
     String emailId, {
     bool? isRead,
     bool? isStarred,
+    bool? isArchived,
     String? aiSummary,
+    double? readingProgress,
   }) async {
     final email = await _storage.getEmailById(emailId);
     if (email == null) return;
@@ -187,10 +189,41 @@ class EmailRepository {
     final updatedEmail = email.copyWith(
       isRead: isRead ?? email.isRead,
       isStarred: isStarred ?? email.isStarred,
+      isArchived: isArchived ?? email.isArchived,
       aiSummary: aiSummary ?? email.aiSummary,
+      readingProgress: readingProgress ?? email.readingProgress,
     );
     
     await _storage.updateEmail(updatedEmail);
+  }
+
+  /// 归档邮件
+  Future<void> archiveEmail(String emailId) async {
+    await updateEmailStatus(emailId, isArchived: true);
+  }
+
+  /// 取消归档邮件
+  Future<void> unarchiveEmail(String emailId) async {
+    await updateEmailStatus(emailId, isArchived: false);
+  }
+
+  /// 更新阅读进度
+  Future<void> updateReadingProgress(String emailId, double progress) async {
+    await updateEmailStatus(emailId, readingProgress: progress);
+  }
+
+  /// 获取已归档的邮件
+  Future<List<EmailMessage>> getArchivedEmails() async {
+    final emails = await _storage.getAllEmails();
+    return emails.where((e) => e.isArchived).toList()
+      ..sort((a, b) => b.receivedDate.compareTo(a.receivedDate));
+  }
+
+  /// 获取未归档的邮件
+  Future<List<EmailMessage>> getUnarchivedEmails() async {
+    final emails = await _storage.getAllEmails();
+    return emails.where((e) => !e.isArchived).toList()
+      ..sort((a, b) => b.receivedDate.compareTo(a.receivedDate));
   }
 
   /// 更新邮件

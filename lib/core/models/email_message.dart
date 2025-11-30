@@ -12,8 +12,10 @@ class EmailMessage {
   final bool isRead;
   final bool isStarred;
   final bool isCached;
+  final bool isArchived;
   final String? aiSummary;
   final String? notes;
+  final double? readingProgress;
   final DateTime createdAt;
 
   EmailMessage({
@@ -30,8 +32,10 @@ class EmailMessage {
     this.isRead = false,
     this.isStarred = false,
     this.isCached = false,
+    this.isArchived = false,
     this.aiSummary,
     this.notes,
+    this.readingProgress,
     required this.createdAt,
   });
 
@@ -50,8 +54,10 @@ class EmailMessage {
       'is_read': isRead ? 1 : 0,
       'is_starred': isStarred ? 1 : 0,
       'is_cached': isCached ? 1 : 0,
+      'is_archived': isArchived ? 1 : 0,
       'ai_summary': aiSummary,
       'notes': notes,
+      'reading_progress': readingProgress,
       'created_at': createdAt.toIso8601String(),
     };
   }
@@ -71,8 +77,10 @@ class EmailMessage {
       isRead: map['is_read'] == 1,
       isStarred: map['is_starred'] == 1,
       isCached: map['is_cached'] == 1,
+      isArchived: map['is_archived'] == 1,
       aiSummary: map['ai_summary'],
       notes: map['notes'],
+      readingProgress: map['reading_progress'] != null ? (map['reading_progress'] as num).toDouble() : null,
       createdAt: DateTime.parse(map['created_at']),
     );
   }
@@ -93,8 +101,10 @@ class EmailMessage {
       'isRead': isRead,
       'isStarred': isStarred,
       'isCached': isCached,
+      'isArchived': isArchived,
       'aiSummary': aiSummary,
       'notes': notes,
+      'readingProgress': readingProgress,
       'createdAt': createdAt.toIso8601String(),
     };
   }
@@ -114,8 +124,10 @@ class EmailMessage {
       isRead: json['isRead'] ?? false,
       isStarred: json['isStarred'] ?? false,
       isCached: json['isCached'] ?? false,
+      isArchived: json['isArchived'] ?? false,
       aiSummary: json['aiSummary'],
       notes: json['notes'],
+      readingProgress: json['readingProgress'] != null ? (json['readingProgress'] as num).toDouble() : null,
       createdAt: DateTime.parse(json['createdAt']),
     );
   }
@@ -134,8 +146,10 @@ class EmailMessage {
     bool? isRead,
     bool? isStarred,
     bool? isCached,
+    bool? isArchived,
     String? aiSummary,
     String? notes,
+    double? readingProgress,
     DateTime? createdAt,
   }) {
     return EmailMessage(
@@ -152,8 +166,10 @@ class EmailMessage {
       isRead: isRead ?? this.isRead,
       isStarred: isStarred ?? this.isStarred,
       isCached: isCached ?? this.isCached,
+      isArchived: isArchived ?? this.isArchived,
       aiSummary: aiSummary ?? this.aiSummary,
       notes: notes ?? this.notes,
+      readingProgress: readingProgress ?? this.readingProgress,
       createdAt: createdAt ?? this.createdAt,
     );
   }

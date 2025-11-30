@@ -5,7 +5,7 @@ import 'package:logging/logging.dart';
 import 'core/theme/app_theme.dart';
 import 'core/services/storage_service.dart';
 import 'core/providers/theme_provider.dart';
-import 'features/home/presentation/pages/home_page.dart';
+import 'features/home/presentation/pages/enhanced_home_page.dart';
 import 'package:flutter/foundation.dart' show kIsWeb, defaultTargetPlatform, TargetPlatform, kDebugMode, debugPrint;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
@@ -68,7 +68,7 @@ class NewsEmailReaderApp extends ConsumerWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeMode,
-      home: const HomePage(),
+      home: const EnhancedHomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
