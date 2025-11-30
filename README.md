@@ -1,4 +1,4 @@
-# æ–°é—»é‚®ä»¶é˜…è¯»å™?News Email Reader
+# ÐÂÎÅÓÊ¼þÔÄ¶ÁÆ÷ News Email Reader
 
 <div align="center">
   <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
@@ -6,98 +6,98 @@
   <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License">
 </div>
 
-> æœ¬é¡¹ç›®ä¸ºè’Ÿè’»è®¡ç®—æœºå­¦ç”Ÿå­¦ä¹ flutteræ—¶ä½¿ç”¨å¤§é‡aiå·¥å…·ç¼åˆå‡ºæ¥çš„æ‹¼å¥½Appï¼Œæœ‰å¤§é‡é—®é¢˜ä¸”ä¸å®šæ—¶ç»´æŠ¤ï¼Œè¯·è°¨æ…Žä½¿ç”¨ã€?
+> ±¾ÏîÄ¿ÎªÉXÉm¼ÆËã»úÑ§ÉúÑ§Ï°flutterÊ±Ê¹ÓÃ´óÁ¿ai¹¤¾ß·ìºÏ³öÀ´µÄÆ´´ÕApp£¬ÓÐ´óÁ¿ÎÊÌâÇÒ²»¶¨Ê±Î¬»¤£¬Çë½÷É÷Ê¹ÓÃ¡£
 >
-> å¦‚æžœæ‚¨æ„¿æ„çš„è¯ï¼Œå¯ä»¥ç›´æŽ¥ä¿®æ”¹æœ¬é¡¹ç›®å¹¶è‡ªè¡Œåˆ†å‘ã€‚å¯¹äºŽæœ¬é¡¹ç›®è€Œè¨€ï¼Œpræ¯”issueæœ‰ç”¨ï¼ˆï¼‰ã€?
+> Èç¹ûÄúÔ¸ÒâµÄ»°£¬¿ÉÒÔÖ±½ÓÐÞ¸Ä±¾ÏîÄ¿²¢×ÔÐÐ·Ö·¢¡£¶ÔÓÚ±¾ÏîÄ¿¶øÑÔ£¬pr±ÈissueÓÐÓÃ£¨£©¡£
 
-**æ–°é—»é‚®ä»¶é˜…è¯»å™?*æ˜¯ä¸€æ¬¾ä¸“ä¸ºé«˜æ•ˆé˜…è¯»å’Œç®¡ç†æ–°é—»ç±»é‚®ä»¶è€Œè®¾è®¡çš„å¼€æº?Flutter åº”ç”¨ã€‚å®ƒé›†æˆäº?AI æ™ºèƒ½æœåŠ¡ã€ç¬”è®°ç³»ç»Ÿå’Œå¼ºå¤§çš„è‡ªå®šä¹‰åŠŸèƒ½ï¼Œæ—¨åœ¨æä¾›ä¸€ä¸ªçº¯å‡€ã€æ— å¹²æ‰°çš„é˜…è¯»ä½“éªŒã€?
+**ÐÂÎÅÓÊ¼þÔÄ¶ÁÆ÷** ÊÇÒ»¿î×¨Îª¸ßÐ§ÔÄ¶ÁºÍ¹ÜÀíÐÂÎÅÀàÓÊ¼þ¶øÉè¼ÆµÄ¿ªÔ´ Flutter Ó¦ÓÃ¡£Ëü¼¯³ÉÁË AI ÖÇÄÜ·þÎñ¡¢±Ê¼ÇÏµÍ³ºÍÇ¿´óµÄ×Ô¶¨Òå¹¦ÄÜ£¬Ö¼ÔÚÌá¹©Ò»¸ö´¿¾»¡¢ÎÞ¸ÉÈÅµÄÔÄ¶ÁÌåÑé¡£
 
-## âœ?åŠŸèƒ½ç‰¹æ€?
+## ? ¹¦ÄÜÌØÐÔ
 
-- **å¤šè´¦æˆ·æ”¯æŒ?*: è½»æ¾æ·»åŠ å’Œç®¡ç†å¤šä¸ªé‚®ç®±è´¦æˆ·ã€?
-- **æ™ºèƒ½é‚®ä»¶åŒæ­¥**: è‡ªå®šä¹‰åŒæ­¥é¢‘çŽ‡ï¼ŒåŠæ—¶èŽ·å–æœ€æ–°é‚®ä»¶ã€?
-- **AI æ™ºèƒ½æœåŠ¡**:
-    - é‚®ä»¶å†…å®¹æ™ºèƒ½æ‘˜è¦ï¼ˆéœ€é…ç½®ï¼‰ã€?
-    - é‚®ä»¶ç¿»è¯‘åŠŸèƒ½ã€?
-- **ç™½åå•æœºåˆ?*: åªæŽ¥æ”¶æ¥è‡ªæ‚¨ä¿¡ä»»çš„å‘ä»¶äººçš„é‚®ä»¶ï¼Œå±è”½å¹²æ‰°ä¿¡æ¯ã€?
-- **æ²‰æµ¸å¼é˜…è¯?*: ç®€æ´çš„é˜…è¯»ç•Œé¢ï¼Œæ”¯æŒç½‘é¡µè§†å›¾å’Œçº¯æ–‡æœ¬è§†å›¾ã€?
-- **ç¬”è®°ä¸Žæ”¶è—?*:
-    - ä¸ºé‡è¦é‚®ä»¶æ·»åŠ ç¬”è®°ã€?
-    - ä¸€é”®æ”¶è—å…³é”®é‚®ä»¶ï¼Œæ–¹ä¾¿æ—¥åŽæŸ¥é˜…ã€?
-- **å…¨æ–‡æœç´¢**: å¿«é€Ÿåœ¨æ‰€æœ‰é‚®ä»¶ä¸­æŸ¥æ‰¾éœ€è¦çš„ä¿¡æ¯ã€?
-- **é«˜åº¦å¯å®šåˆ?*:
-    - æ”¯æŒæµ…è‰²ä¸Žæ·±è‰²ä¸»é¢˜åˆ‡æ¢ã€?
-    - çµæ´»é…ç½® AI æœåŠ¡ã€åŒæ­¥é€‰é¡¹å’Œç™½åå•è§„åˆ™ã€?
-- **å¤šè¯­è¨€æ”¯æŒ**: å†…ç½®ä¸­æ–‡å’Œè‹±æ–‡æ”¯æŒã€?
+- **¶àÕË»§Ö§³Ö**: ÇáËÉÌí¼ÓºÍ¹ÜÀí¶à¸öÓÊÏäÕË»§¡£
+- **ÖÇÄÜÓÊ¼þÍ¬²½**: ×Ô¶¨ÒåÍ¬²½ÆµÂÊ£¬¼°Ê±»ñÈ¡×îÐÂÓÊ¼þ¡£
+- **AI ÖÇÄÜ·þÎñ**:
+    - ÓÊ¼þÄÚÈÝÖÇÄÜÕªÒª£¨ÐèÅäÖÃ£©¡£
+    - ÓÊ¼þ·­Òë¹¦ÄÜ¡£
+- **°×Ãûµ¥»úÖÆ**: Ö»½ÓÊÕÀ´×ÔÄúÐÅÈÎµÄ·¢¼þÈËµÄÓÊ¼þ£¬ÆÁ±Î¸ÉÈÅÐÅÏ¢¡£
+- **³Á½þÊ½ÔÄ¶Á**: ¼ò½àµÄÔÄ¶Á½çÃæ£¬Ö§³ÖÍøÒ³ÊÓÍ¼ºÍ´¿ÎÄ±¾ÊÓÍ¼¡£
+- **±Ê¼ÇÓëÊÕ²Ø**:
+    - ÎªÖØÒªÓÊ¼þÌí¼Ó±Ê¼Ç¡£
+    - Ò»¼üÊÕ²Ø¹Ø¼üÓÊ¼þ£¬·½±ãÈÕºó²éÔÄ¡£
+- **È«ÎÄËÑË÷**: ¿ìËÙÔÚËùÓÐÓÊ¼þÖÐ²éÕÒÐèÒªµÄÐÅÏ¢¡£
+- **¸ß¶È¿É¶¨ÖÆ**:
+    - Ö§³ÖÇ³É«ÓëÉîÉ«Ö÷ÌâÇÐ»»¡£
+    - Áé»îÅäÖÃ AI ·þÎñ¡¢Í¬²½Ñ¡ÏîºÍ°×Ãûµ¥¹æÔò¡£
+- **¶àÓïÑÔÖ§³Ö**: ÄÚÖÃÖÐÎÄºÍÓ¢ÎÄÖ§³Ö¡£
 
-## ðŸš€ å®‰è£…æŒ‡å—
+## ? °²×°Ö¸ÄÏ
 
-è¯·è®¿é—®æœ¬é¡¹ç›®çš„[releases](https://github.com/AullChen/news_email_reader/releases)ç•Œé¢ï¼Œæˆ–ï¼?
+Çë·ÃÎÊ±¾ÏîÄ¿µÄ[releases](https://github.com/AullChen/news_email_reader/releases)½çÃæ£¬»ò£º
 
-1.  **çŽ¯å¢ƒå‡†å¤‡**:
+1.  **»·¾³×¼±¸**:
     
-    - ç¡®ä¿æ‚¨å·²å®‰è£… [Flutter SDK](https://flutter.dev/docs/get-started/install) (ç‰ˆæœ¬ >= 3.0.0)ã€?
-    - é…ç½®å¥½æ‚¨çš„å¼€å‘çŽ¯å¢?(å¦?Android Studio, VS Code)ã€?
+    - È·±£ÄúÒÑ°²×° [Flutter SDK](https://flutter.dev/docs/get-started/install) (°æ±¾ >= 3.0.0)¡£
+    - ÅäÖÃºÃÄúµÄ¿ª·¢»·¾³(Èç Android Studio, VS Code)¡£
     
-2.  **å…‹éš†é¡¹ç›®**:
+2.  **¿ËÂ¡ÏîÄ¿**:
     ```bash
     git clone https://github.com/your-username/news_email_reader.git
     cd news_email_reader
     ```
 
-3.  **å®‰è£…ä¾èµ–**:
+3.  **°²×°ÒÀÀµ**:
     ```bash
     flutter pub get
     ```
 
-4.  **è¿è¡Œåº”ç”¨**:
+4.  **ÔËÐÐÓ¦ÓÃ**:
     ```bash
     flutter run
     ```
 
-## ðŸ“– ä½¿ç”¨è¯´æ˜Ž
+## ? Ê¹ÓÃËµÃ÷
 
-1.  **æ·»åŠ è´¦æˆ·**: é¦–æ¬¡å¯åŠ¨åº”ç”¨æ—¶ï¼Œè¯·åœ¨â€œè®¾ç½®â€é¡µé¢æ·»åŠ æ‚¨çš„é‚®ç®±è´¦æˆ·ï¼ˆç›®å‰æ”¯æŒ IMAP åè®®ï¼‰ã€?
-2.  **é‚®ä»¶åŒæ­¥**: æ·»åŠ è´¦æˆ·åŽï¼Œåº”ç”¨å°†è‡ªåŠ¨å¼€å§‹åŒæ­¥é‚®ä»¶ã€‚æ‚¨å¯ä»¥åœ¨è®¾ç½®ä¸­è°ƒæ•´åŒæ­¥é¢‘çŽ‡ã€?
-3.  **é˜…è¯»é‚®ä»¶**: åœ¨ä¸»é¡µç‚¹å‡»é‚®ä»¶å³å¯è¿›å…¥é˜…è¯»ç•Œé¢ã€‚æ‚¨å¯ä»¥åˆ‡æ¢è§†å›¾ã€ç¿»è¯‘å†…å®¹æˆ–æ·»åŠ ç¬”è®°ã€?
-4.  **ç®¡ç†ç™½åå?*: åœ¨â€œè®¾ç½®â€ä¸­ç®¡ç†ç™½åå•ï¼Œåªæœ‰ç™½åå•ä¸­çš„å‘ä»¶äººé‚®ä»¶æ‰ä¼šè¢«æŽ¥æ”¶ã€?
-5.  **ä½¿ç”¨ AI åŠŸèƒ½**: åœ¨â€œè®¾ç½®â€ä¸­é…ç½®æ‚¨çš„ AI æœåŠ¡å¯†é’¥ï¼Œå³å¯ä½¿ç”¨é‚®ä»¶æ‘˜è¦ç­‰é«˜çº§åŠŸèƒ½ã€?
+1.  **Ìí¼ÓÕË»§**: Ê×´ÎÆô¶¯Ó¦ÓÃÊ±£¬ÇëÔÚ"ÉèÖÃ"Ò³ÃæÌí¼ÓÄúµÄÓÊÏäÕË»§£¨Ä¿Ç°Ö§³Ö IMAP Ð­Òé£©¡£
+2.  **ÓÊ¼þÍ¬²½**: Ìí¼ÓÕË»§ºó£¬Ó¦ÓÃ½«×Ô¶¯¿ªÊ¼Í¬²½ÓÊ¼þ¡£Äú¿ÉÒÔÔÚÉèÖÃÖÐµ÷ÕûÍ¬²½ÆµÂÊ¡£
+3.  **ÔÄ¶ÁÓÊ¼þ**: ÔÚÖ÷Ò³µã»÷ÓÊ¼þ¼´¿É½øÈëÔÄ¶Á½çÃæ¡£Äú¿ÉÒÔÇÐ»»ÊÓÍ¼¡¢·­ÒëÄÚÈÝ»òÌí¼Ó±Ê¼Ç¡£
+4.  **¹ÜÀí°×Ãûµ¥**: ÔÚ"ÉèÖÃ"ÖÐ¹ÜÀí°×Ãûµ¥£¬Ö»ÓÐ°×Ãûµ¥ÖÐµÄ·¢¼þÈËÓÊ¼þ²Å»á±»½ÓÊÕ¡£
+5.  **Ê¹ÓÃ AI ¹¦ÄÜ**: ÔÚ"ÉèÖÃ"ÖÐÅäÖÃÄúµÄ AI ·þÎñÃÜÔ¿£¬¼´¿ÉÊ¹ÓÃÓÊ¼þÕªÒªµÈ¸ß¼¶¹¦ÄÜ¡£
 
-## âš™ï¸ é…ç½®é€‰é¡¹
+## ?? ÅäÖÃÑ¡Ïî
 
-åº”ç”¨çš„æ‰€æœ‰é…ç½®é¡¹éƒ½é›†ä¸­åœ¨ **è®¾ç½®** é¡µé¢ï¼?
+Ó¦ÓÃµÄËùÓÐÅäÖÃÏî¶¼¼¯ÖÐÔÚ **ÉèÖÃ** Ò³Ãæ£º
 
-- **è´¦æˆ·ç®¡ç†**: æ·»åŠ ã€ç¼–è¾‘æˆ–åˆ é™¤æ‚¨çš„é‚®ç®±è´¦æˆ·ã€?
-- **AIä¸Žç¿»è¯?*: é…ç½®ç¬¬ä¸‰æ–?AI å’?ç¿»è¯‘ æœåŠ¡çš?API Key å’?Endpointã€?
-- **é‚®ä»¶åŒæ­¥é…ç½®**: è®¾ç½®è‡ªåŠ¨åŒæ­¥çš„æ—¶é—´é—´éš”ã€?
-- **ç™½åå•ç®¡ç?*: æ·»åŠ æˆ–ç§»é™¤ä¿¡ä»»çš„å‘ä»¶äººé‚®ç®±åœ°å€ã€?
-- **å¤–è§‚**: åˆ‡æ¢æµ…è‰²/æ·±è‰²ä¸»é¢˜ã€?
+- **ÕË»§¹ÜÀí**: Ìí¼Ó¡¢±à¼­»òÉ¾³ýÄúµÄÓÊÏäÕË»§¡£
+- **AIÓë·­Òë**: ÅäÖÃµÚÈý·½ AI Óë ·­Òë ·þÎñµÄ API Key ºÍ Endpoint¡£
+- **ÓÊ¼þÍ¬²½ÅäÖÃ**: ÉèÖÃ×Ô¶¯Í¬²½µÄÊ±¼ä¼ä¸ô¡£
+- **°×Ãûµ¥¹ÜÀí**: Ìí¼Ó»òÒÆ³ýÐÅÈÎµÄ·¢¼þÈËÓÊÏäµØÖ·¡£
+- **Íâ¹Û**: ÇÐ»»Ç³É«/ÉîÉ«Ö÷Ìâ¡£
 
-## ðŸ¤ å¦‚ä½•è´¡çŒ®
+## ? ÈçºÎ¹±Ï×
 
-æˆ‘ä»¬æ¬¢è¿Žä»»ä½•å½¢å¼çš„è´¡çŒ®ï¼è¯·é˜…è¯»æˆ‘ä»¬çš„ [CONTRIBUTING.md](https://github.com/AullChen/news_email_reader/blob/main/CONTRIBUTING.md) æ–‡ä»¶ï¼Œäº†è§£å¦‚ä½•å‚ä¸Žæ”¹è¿›è¿™ä¸ªé¡¹ç›®ã€?
+ÎÒÃÇ»¶Ó­ÈÎºÎÐÎÊ½µÄ¹±Ï×£¡ÇëÔÄ¶ÁÎÒÃÇµÄ [CONTRIBUTING.md](https://github.com/AullChen/news_email_reader/blob/main/CONTRIBUTING.md) ÎÄ¼þ£¬ÁË½âÈçºÎ²ÎÓë¸Ä½øÕâ¸öÏîÄ¿¡£
 
-## ðŸ“„ å¼€æºè®¸å?
+## ? ¿ªÔ´Ðí¿É
 
-æœ¬é¡¹ç›®é‡‡ç”?MIT è®¸å¯è¯ã€‚è¯¦æƒ…è¯·è§?[LICENSE](https://github.com/AullChen/news_email_reader/blob/main/LICENSE) æ–‡ä»¶ã€?
+±¾ÏîÄ¿²ÉÓÃ MIT Ðí¿ÉÖ¤¡£ÏêÇéÇë¼û [LICENSE](https://github.com/AullChen/news_email_reader/blob/main/LICENSE) ÎÄ¼þ¡£
 
-## ðŸ™ è‡´è°¢
+## ? ÖÂÐ»
 
 - [CodeBuddy](https://www.codebuddy.ai/) - IDE
-- [Claude AI](https://www.anthropic.com/) [OpenAI](https://openai.com/) [Gemini](https://gemini.google.com/) - ä»£ç åŠ©æ‰‹
-- [Flutter](https://flutter.dev/) - è·¨å¹³å°UIæ¡†æž¶
-- [Free-QWQ](https://qwq.aigpu.cn/) - å…è´¹æ— é™åˆ¶åˆ†å¸ƒå¼AIç®—åŠ›å¹³å°â€”â€”æä¾›æœ¬é¡¹ç›®çš„é»˜è®¤å¤§æ¨¡åž‹API
-- [é€šç”¨ç¿»è¯‘å…è´¹API](https://api.aa1.cn/doc/translates.html) - å…è´¹æŽ¥å£è°ƒç”¨å¹³å°ï¼Œæä¾›æœ¬é¡¹ç›®çš„é»˜è®¤ç¿»è¯‘API
+- [Claude AI](https://www.anthropic.com/) [OpenAI](https://openai.com/) [Gemini](https://gemini.google.com/) - ´úÂëÖúÊÖ
+- [Flutter](https://flutter.dev/) - ¿çÆ½Ì¨UI¿ò¼Ü
+- [Free-QWQ](https://qwq.aigpu.cn/) - Ãâ·ÑÎÞÏÞÖÆ·Ö²¼Ê½AIËãÁ¦Æ½Ì¨¡ª¡ªÌá¹©±¾ÏîÄ¿µÄÄ¬ÈÏ´óÄ£ÐÍAPI
+- [Í¨ÓÃ·­ÒëÃâ·ÑAPI](https://api.aa1.cn/doc/translates.html) - Ãâ·Ñ½Ó¿Úµ÷ÓÃÆ½Ì¨£¬Ìá¹©±¾ÏîÄ¿µÄÄ¬ÈÏ·­ÒëAPI
 
-## ðŸ“ž è”ç³»æ–¹å¼
+## ? ÁªÏµ·½Ê½
 
-- **é¡¹ç›®ä¸»é¡µ**: [GitHub Repository](https://github.com/AullChen/news_email_reader)
-- **é—®é¢˜åé¦ˆ**: [Issues](https://github.com/AullChen/news_email_reader/issues)
-- **åŠŸèƒ½å»ºè®®**: [Discussions](https://github.com/AullChen/news_email_reader/discussions)
+- **ÏîÄ¿Ö÷Ò³**: [GitHub Repository](https://github.com/AullChen/news_email_reader)
+- **ÎÊÌâ·´À¡**: [Issues](https://github.com/AullChen/news_email_reader/issues)
+- **¹¦ÄÜ½¨Òé**: [Discussions](https://github.com/AullChen/news_email_reader/discussions)
 
 ------
 
 <div align="center">
-  <p>å¦‚æžœè¿™ä¸ªé¡¹ç›®å¯¹æ‚¨æœ‰å¸®åŠ©ã€ä½¿æ‚¨æ„Ÿå…´è¶£æˆ–è€…ç»™æ‚¨å¸¦æ¥äº†æ¬¢ä¹ï¼Œè¯·ç»™æˆ‘ä»¬ä¸€ä¸?â­ï¸</p>
-  <p>Made with â¤ï¸ by AullChen</p>
+  <p>Èç¹ûÕâ¸öÏîÄ¿¶ÔÄúÓÐ°ïÖú¡¢Ê¹Äú¸ÐÐËÈ¤»òÕß¸øÄú´øÀ´ÁË»¶ÀÖ£¬Çë¸øÎÒÃÇÒ»¸ö ??</p>
+  <p>Made with ?? by AullChen</p>
 </div>

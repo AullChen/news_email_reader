@@ -1,73 +1,73 @@
-# è´¡çŒ®æŒ‡å—
+# ¹±Ï×Ö¸ÄÏ
 
-æˆ‘ä»¬éžå¸¸æ¬¢è¿Žæ‚¨ä¸ºæ–°é—»é‚®ä»¶é˜…è¯»å™¨é¡¹ç›®åšå‡ºè´¡çŒ®ï¼æ„Ÿè°¢æ‚¨çš„æ—¶é—´å’Œçƒ­æƒ…ã€?
+ÎÒÃÇ·Ç³£»¶Ó­ÄúÎªÐÂÎÅÓÊ¼þÔÄ¶ÁÆ÷ÏîÄ¿×ö³ö¹±Ï×£¡¸ÐÐ»ÄúµÄÊ±¼äºÍÈÈÇé¡£
 
-åœ¨æäº¤è´¡çŒ®ä¹‹å‰ï¼Œè¯·èŠ±äº›æ—¶é—´é˜…è¯»ä»¥ä¸‹æŒ‡å—ï¼Œä»¥ç¡®ä¿æ‚¨çš„è´¡çŒ®è¿‡ç¨‹é¡ºåˆ©ä¸”æœ‰æ•ˆã€?
+ÔÚÌá½»¹±Ï×Ö®Ç°£¬Çë»¨Ð©Ê±¼äÔÄ¶ÁÒÔÏÂÖ¸ÄÏ£¬ÒÔÈ·±£ÄúµÄ¹±Ï×¹ý³ÌË³ÀûÇÒÓÐÐ§¡£
 
-## è¡Œä¸ºå‡†åˆ™
+## ÐÐÎª×¼Ôò
 
-æˆ‘ä»¬è‡´åŠ›äºŽä¸ºæ‰€æœ‰è´¡çŒ®è€…å’Œç”¨æˆ·æä¾›ä¸€ä¸ªå‹å¥½ã€å®‰å…¨å’Œçƒ­æƒ…çš„çŽ¯å¢ƒã€‚è¯·éµå®ˆæˆ‘ä»¬çš?[è¡Œä¸ºå‡†åˆ™](CODE_OF_CONDUCT.md)ï¼ˆç¨åŽåˆ›å»ºï¼‰ã€?
+ÎÒÃÇÖÂÁ¦ÓÚÎªËùÓÐ¹±Ï×ÕßºÍÓÃ»§Ìá¹©Ò»¸öÓÑºÃ¡¢°²È«ºÍÈÈÇéµÄ»·¾³¡£Çë×ñÊØÎÒÃÇµÄ [ÐÐÎª×¼Ôò](CODE_OF_CONDUCT.md)£¨ÉÔºó´´½¨£©¡£
 
-## å¦‚ä½•è´¡çŒ®
+## ÈçºÎ¹±Ï×
 
-æˆ‘ä»¬æ¬¢è¿Žå„ç§å½¢å¼çš„è´¡çŒ®ï¼ŒåŒ…æ‹¬ä½†ä¸é™äºŽï¼?
-- æŠ¥å‘Š Bug
-- æäº¤åŠŸèƒ½éœ€æ±?
-- æ’°å†™æˆ–æ”¹è¿›æ–‡æ¡?
-- æäº¤ Pull Request (PR)
+ÎÒÃÇ»¶Ó­¸÷ÖÖÐÎÊ½µÄ¹±Ï×£¬°üÀ¨µ«²»ÏÞÓÚ£º
+- ±¨¸æ Bug
+- Ìá½»¹¦ÄÜÐèÇó
+- ×«Ð´»ò¸Ä½øÎÄµµ
+- Ìá½» Pull Request (PR)
 
-### æŠ¥å‘Š Bug
+### ±¨¸æ Bug
 
-å¦‚æžœæ‚¨å‘çŽ°äº† Bugï¼Œè¯·é€šè¿‡æäº¤ Issue çš„æ–¹å¼å‘ŠçŸ¥æˆ‘ä»¬ã€‚ä¸€ä¸ªå¥½çš?Bug æŠ¥å‘Šåº”åŒ…å«ä»¥ä¸‹å†…å®¹ï¼š
-- **æ¸…æ™°çš„æ ‡é¢?*: ç®€è¦æè¿°é—®é¢˜ã€?
-- **å¤çŽ°æ­¥éª¤**: è¯¦ç»†è¯´æ˜Žå¦‚ä½•ä¸€æ­¥æ­¥å¤çŽ°è¯?Bugã€?
-- **æœŸæœ›è¡Œä¸º**: æè¿°åœ¨æ­£å¸¸æƒ…å†µä¸‹åº”è¯¥å‘ç”Ÿä»€ä¹ˆã€?
-- **å®žé™…è¡Œä¸º**: æè¿°å®žé™…å‘ç”Ÿäº†ä»€ä¹ˆï¼Œå¹¶é™„ä¸Šæˆªå›¾æˆ–æ—¥å¿—ï¼ˆå¦‚æžœå¯èƒ½ï¼‰ã€?
-- **æ‚¨çš„çŽ¯å¢ƒ**: æä¾›æ‚¨çš„è®¾å¤‡ã€æ“ä½œç³»ç»Ÿå’Œåº”ç”¨ç‰ˆæœ¬ä¿¡æ¯ã€?
+Èç¹ûÄú·¢ÏÖÁË Bug£¬ÇëÍ¨¹ýÌá½» Issue µÄ·½Ê½¸æÖªÎÒÃÇ¡£Ò»¸öºÃµÄ Bug ±¨¸æÓ¦°üº¬ÒÔÏÂÄÚÈÝ£º
+- **ÇåÎúµÄ±êÌâ**: ¼òÒªÃèÊöÎÊÌâ¡£
+- **¸´ÏÖ²½Öè**: ÏêÏ¸ËµÃ÷ÈçºÎÒ»²½²½¸´ÏÖ¸Ã Bug¡£
+- **ÆÚÍûÐÐÎª**: ÃèÊöÔÚÕý³£Çé¿öÏÂÓ¦¸Ã·¢ÉúÊ²Ã´¡£
+- **Êµ¼ÊÐÐÎª**: ÃèÊöÊµ¼Ê·¢ÉúÁËÊ²Ã´£¬²¢¸½ÉÏ½ØÍ¼»òÈÕÖ¾£¨Èç¹û¿ÉÄÜ£©¡£
+- **ÄúµÄ»·¾³**: Ìá¹©ÄúµÄÉè±¸¡¢²Ù×÷ÏµÍ³ºÍÓ¦ÓÃ°æ±¾ÐÅÏ¢¡£
 
-### æäº¤ Pull Request (PR)
+### Ìá½» Pull Request (PR)
 
-æˆ‘ä»¬éžå¸¸æ¬¢è¿Žæ‚¨é€šè¿‡ PR çš„æ–¹å¼ä¸ºé¡¹ç›®è´¡çŒ®ä»£ç ã€‚è¯·éµå¾ªä»¥ä¸‹æµç¨‹ï¼?
+ÎÒÃÇ·Ç³£»¶Ó­ÄúÍ¨¹ý PR µÄ·½Ê½ÎªÏîÄ¿¹±Ï×´úÂë¡£Çë×ñÑ­ÒÔÏÂÁ÷³Ì£º
 
-1.  **Fork é¡¹ç›®**: å°†æœ¬ä»“åº“ Fork åˆ°æ‚¨è‡ªå·±çš?GitHub è´¦æˆ·ã€?
-2.  **å…‹éš†æ‚¨çš„ Fork**:
+1.  **Fork ÏîÄ¿**: ½«±¾²Ö¿â Fork µ½Äú×Ô¼ºµÄ GitHub ÕË»§¡£
+2.  **¿ËÂ¡ÄúµÄ Fork**:
     ```bash
     git clone https://github.com/your-username/news_email_reader.git
     ```
-3.  **åˆ›å»ºæ–°åˆ†æ”?*:
+3.  **´´½¨ÐÂ·ÖÖ§**:
     ```bash
     git checkout -b feature/your-feature-name
     ```
-    æˆ–è€?
+    »òÕß
     ```bash
     git checkout -b fix/your-bug-fix-name
     ```
-4.  **è¿›è¡Œä¿®æ”¹**: åœ¨æ–°åˆ†æ”¯ä¸Šè¿›è¡Œæ‚¨çš„ä»£ç ä¿®æ”¹ã€?
-5.  **éµå®ˆä»£ç é£Žæ ¼**: ç¡®ä¿æ‚¨çš„ä»£ç éµå¾ªé¡¹ç›®çŽ°æœ‰çš„ä»£ç é£Žæ ¼å’Œè§„èŒƒã€?
-    - ä½¿ç”¨ `flutter format` æ ¼å¼åŒ–æ‚¨çš?Dart ä»£ç ã€?
-    - éµå¾ªæœ‰æ•ˆçš?Dart ç¼–ç¨‹é£Žæ ¼æŒ‡å—ã€?
-6.  **æäº¤ä»£ç **:
+4.  **½øÐÐÐÞ¸Ä**: ÔÚÐÂ·ÖÖ§ÉÏ½øÐÐÄúµÄ´úÂëÐÞ¸Ä¡£
+5.  **×ñÊØ´úÂë·ç¸ñ**: È·±£ÄúµÄ´úÂë×ñÑ­ÏîÄ¿ÏÖÓÐµÄ´úÂë·ç¸ñºÍ¹æ·¶¡£
+    - Ê¹ÓÃ `flutter format` ¸ñÊ½»¯ÄúµÄ Dart ´úÂë¡£
+    - ×ñÑ­ÓÐÐ§µÄ Dart ±à³Ì·ç¸ñÖ¸ÄÏ¡£
+6.  **Ìá½»´úÂë**:
     ```bash
-    git commit -m "feat: æ·»åŠ äº†æŸä¸ªå¾ˆæ£’çš„åŠŸèƒ½"
+    git commit -m "feat: Ìí¼ÓÁËÄ³¸öºÜ°ôµÄ¹¦ÄÜ"
     ```
-    æˆ‘ä»¬æŽ¨èä½¿ç”¨ [Conventional Commits](https://www.conventionalcommits.org/) è§„èŒƒæ¥æ’°å†™æäº¤ä¿¡æ¯ã€?
-7.  **æŽ¨é€åˆ°æ‚¨çš„ Fork**:
+    ÎÒÃÇÍÆ¼öÊ¹ÓÃ [Conventional Commits](https://www.conventionalcommits.org/) ¹æ·¶À´×«Ð´Ìá½»ÐÅÏ¢¡£
+7.  **ÍÆËÍµ½ÄúµÄ Fork**:
     ```bash
     git push origin feature/your-feature-name
     ```
-8.  **åˆ›å»º Pull Request**: åœ?GitHub ä¸Šæ‰“å¼€ä¸€ä¸?Pull Requestï¼Œå°†å…¶æŒ‡å‘æœ¬ä»“åº“çš?`main` åˆ†æ”¯ã€‚è¯·åœ?PR æè¿°ä¸­æ¸…æ™°åœ°è¯´æ˜Žæ‚¨çš„ä¿®æ”¹å†…å®¹å’Œç›®çš„ã€?
+8.  **´´½¨ Pull Request**: ÔÚ GitHub ÉÏ´ò¿ªÒ»¸ö Pull Request£¬½«ÆäÖ¸Ïò±¾²Ö¿âµÄ `main` ·ÖÖ§¡£ÇëÔÚ PR ÃèÊöÖÐÇåÎúµØËµÃ÷ÄúµÄÐÞ¸ÄÄÚÈÝºÍÄ¿µÄ¡£
 
-## å¼€å‘çŽ¯å¢ƒæ­å»?
+## ¿ª·¢»·¾³´î½¨
 
-è¯·å‚è€?`README.md` æ–‡ä»¶ä¸­çš„ [å®‰è£…æŒ‡å—](#-å®‰è£…æŒ‡å—) éƒ¨åˆ†æ¥æ­å»ºæ‚¨çš„æœ¬åœ°å¼€å‘çŽ¯å¢ƒã€?
+Çë²Î¿¼ `README.md` ÎÄ¼þÖÐµÄ [°²×°Ö¸ÄÏ](#-°²×°Ö¸ÄÏ) ²¿·ÖÀ´´î½¨ÄúµÄ±¾µØ¿ª·¢»·¾³¡£
 
-## ä»£ç é£Žæ ¼è¦æ±‚
+## ´úÂë·ç¸ñÒªÇó
 
-- **æ ¼å¼åŒ?*: æ‰€æœ?Dart ä»£ç éƒ½åº”ä½¿ç”¨ `flutter format .` è¿›è¡Œæ ¼å¼åŒ–ã€?
-- **å‘½åè§„èŒƒ**:
-    - æ–‡ä»¶åã€ç±»åã€æžšä¸¾ã€æ‰©å±•ç­‰ä½¿ç”¨ `UpperCamelCase`ã€?
-    - åº“ã€åŒ…ã€ç›®å½•ã€æºæ–‡ä»¶åä½¿ç”?`lowercase_with_underscores`ã€?
-    - å˜é‡åã€æ–¹æ³•åã€å‚æ•°åä½¿ç”¨ `lowerCamelCase`ã€?
-- **æ³¨é‡Š**: ä¸ºå…¬å…?API å’Œå¤æ‚çš„é€»è¾‘æ·»åŠ æ¸…æ™°çš„æ–‡æ¡£æ³¨é‡Šã€?
+- **¸ñÊ½»¯**: ËùÓÐ Dart ´úÂë¶¼Ó¦Ê¹ÓÃ `flutter format .` ½øÐÐ¸ñÊ½»¯¡£
+- **ÃüÃû¹æ·¶**:
+    - ÎÄ¼þÃû¡¢ÀàÃû¡¢Ã¶¾Ù¡¢À©Õ¹µÈÊ¹ÓÃ `UpperCamelCase`¡£
+    - ¿â¡¢°ü¡¢Ä¿Â¼¡¢Ô´ÎÄ¼þÃûÊ¹ÓÃ `lowercase_with_underscores`¡£
+    - ±äÁ¿Ãû¡¢·½·¨Ãû¡¢²ÎÊýÃûÊ¹ÓÃ `lowerCamelCase`¡£
+- **×¢ÊÍ**: Îª¹«¹² API ºÍ¸´ÔÓµÄÂß¼­Ìí¼ÓÇåÎúµÄÎÄµµ×¢ÊÍ¡£
 
-æ„Ÿè°¢æ‚¨çš„è´¡çŒ®ï¼
+¸ÐÐ»ÄúµÄ¹±Ï×£¡
