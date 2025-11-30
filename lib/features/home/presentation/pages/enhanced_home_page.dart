@@ -10,6 +10,7 @@ import '../../../../core/services/translation_service.dart';
 import '../../../../core/services/permission_service.dart';
 import '../../../../core/utils/email_sort_utils.dart';
 import '../../../../core/widgets/swipeable_email_card.dart';
+import '../../../../core/constants/app_version.dart';
 
 import '../../../reader/presentation/pages/email_reader_page.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
@@ -773,7 +774,7 @@ class _EnhancedHomePageState extends ConsumerState<EnhancedHomePage>
                   ),
                 ),
                 Text(
-                  'v1.0.0',
+                  AppVersion.versionName,
                   style: TextStyle(
                     color: Colors.white70,
                     fontSize: 14,

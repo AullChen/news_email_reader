@@ -7,6 +7,7 @@ import '../../../../core/services/settings_service.dart';
 import '../../../../core/services/storage_service.dart';
 import '../../../../core/services/cache_service.dart';
 import '../../../../core/providers/theme_provider.dart';
+import '../../../../core/constants/app_version.dart';
 import '../widgets/account_management_section.dart';
 import '../widgets/whitelist_management_section.dart';
 import '../widgets/ai_settings_section.dart';
@@ -199,7 +200,7 @@ class _AppSettingsSectionState extends ConsumerState<AppSettingsSection> {
             _buildSettingsTile(
               icon: Icons.info,
               title: '版本信息',
-              subtitle: '极客新闻邮件阅读器 v1.0.0',
+              subtitle: '极客新闻邮件阅读器 ${AppVersion.versionName}',
               onTap: () {
                 _showAboutDialog(context);
               },

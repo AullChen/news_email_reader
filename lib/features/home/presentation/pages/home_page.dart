@@ -8,6 +8,7 @@ import '../../../../core/repositories/email_repository.dart';
 import '../../../../core/repositories/account_repository.dart';
 import '../../../../core/services/ai_service.dart';
 import '../../../../core/services/translation_service.dart';
+import '../../../../core/constants/app_version.dart';
 
 import '../../../reader/presentation/pages/email_reader_page.dart';
 import '../../../settings/presentation/pages/settings_page.dart';
@@ -935,7 +936,7 @@ class _HomePageState extends ConsumerState<HomePage> with TickerProviderStateMix
                   ),
                 ),
                 Text(
-                  'v1.0.0',
+                  AppVersion.versionName,
                   style: TextStyle(
                     color: Colors.white70,
                     fontSize: 14,

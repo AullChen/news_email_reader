@@ -4,6 +4,8 @@ import '../../../../core/theme/app_theme.dart';
 import '../../../../core/services/ai_service.dart';
 import '../../../../core/services/settings_service.dart';
 import '../../../../core/services/translation_service.dart';
+import 'ai_config_dialog.dart';
+import 'ai_setup_guide_card.dart';
 
 class AISettingsSection extends ConsumerStatefulWidget {
   const AISettingsSection({super.key});
@@ -70,9 +72,18 @@ class _AISettingsSectionState extends ConsumerState<AISettingsSection> {
 
   @override
   Widget build(BuildContext context) {
+    // 检查是否使用默认配置
+    final isUsingDefault = _apiKey == 'sk-W0rpStc95T7JVYVwDYc29IyirjtpPPby6SozFMQr17m8KWeo' ||
+                          _selectedProvider == 'suanli';
+    
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
+        // 始终显示提示卡片
+        AISetupGuideCard(isUsingDefault: isUsingDefault),
+        const SizedBox(height: 16),
+        _buildQuickConfigButton(),
+        const SizedBox(height: 16),
         _buildProviderSection(),
         const SizedBox(height: 24),
         _buildConfigurationSection(),
@@ -83,6 +94,42 @@ class _AISettingsSectionState extends ConsumerState<AISettingsSection> {
         const SizedBox(height: 24),
         _buildTranslationSettingsSection(),
       ],
+    );
+  }
+
+  Widget _buildQuickConfigButton() {
+    return Card(
+      color: AppTheme.primaryColor.withOpacity(0.1),
+      child: ListTile(
+        leading: const Icon(Icons.auto_awesome, color: AppTheme.primaryColor),
+        title: const Text(
+          '快速配置 AI 服务',
+          style: TextStyle(fontWeight: FontWeight.w500),
+        ),
+        subtitle: const Text('支持 OpenAI、Claude、Gemini 等多个提供商'),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+        onTap: () async {
+          final result = await showDialog(
+            context: context,
+            builder: (context) => const AIConfigDialog(),
+          );
+          
+          if (result == true && mounted) {
+            // 重新加载配置
+            final config = _aiService.getConfiguration();
+            setState(() {
+              _selectedProvider = (config['provider'] as AIProvider).name;
+              _baseUrl = config['baseUrl'] as String;
+              _apiKey = config['apiKey'] as String;
+              _model = config['model'] as String;
+            });
+            
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('AI 配置已更新')),
+            );
+          }
+        },
+      ),
     );
   }
 
