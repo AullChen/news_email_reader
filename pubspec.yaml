@@ -40,6 +40,7 @@ dependencies:
   cached_network_image: ^3.3.0
   image_gallery_saver: ^2.0.3
   permission_handler: ^11.0.1
+  device_info_plus: ^10.0.1
   
   # UI Components
   cupertino_icons: ^1.0.2

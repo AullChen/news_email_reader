@@ -45,5 +45,22 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	
+	<!-- 网络访问权限说明 -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	
+	<!-- 相册访问权限说明 -->
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>需要访问相册以保存邮件中的图片</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要访问相册以保存邮件中的图片</string>
+	
+	<!-- 相机权限说明（如果将来需要） -->
+	<key>NSCameraUsageDescription</key>
+	<string>需要访问相机以拍摄照片</string>
 </dict>
 </plist>

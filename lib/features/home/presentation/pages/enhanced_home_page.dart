@@ -7,6 +7,7 @@ import '../../../../core/repositories/email_repository.dart';
 import '../../../../core/repositories/account_repository.dart';
 import '../../../../core/services/ai_service.dart';
 import '../../../../core/services/translation_service.dart';
+import '../../../../core/services/permission_service.dart';
 import '../../../../core/utils/email_sort_utils.dart';
 import '../../../../core/widgets/swipeable_email_card.dart';
 
@@ -68,10 +69,24 @@ class _EnhancedHomePageState extends ConsumerState<EnhancedHomePage>
 
     _loadEmails();
     
-    // 应用启动时自动同步一次
+    // 应用启动时请求权限并自动同步
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _performInitialSync();
+      _requestPermissionsAndSync();
     });
+  }
+
+  /// 请求权限并执行初始同步
+  Future<void> _requestPermissionsAndSync() async {
+    // 请求必要的权限（静默请求，不影响用户体验）
+    try {
+      final permissionService = PermissionService();
+      await permissionService.requestStoragePermission();
+    } catch (e) {
+      debugPrint('权限请求失败: $e');
+    }
+    
+    // 执行初始同步
+    await _performInitialSync();
   }
 
   @override

@@ -3,8 +3,8 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'permission_service.dart';
 
 /// 图片保存服务
 class ImageSaveService {
@@ -13,12 +13,13 @@ class ImageSaveService {
   ImageSaveService._internal();
 
   final Dio _dio = Dio();
+  final PermissionService _permissionService = PermissionService();
 
   /// 保存网络图片到相册
   Future<bool> saveImageFromUrl(String imageUrl) async {
     try {
       // 请求存储权限
-      if (!await _requestPermission()) {
+      if (!await _permissionService.requestStoragePermission()) {
         debugPrint('存储权限被拒绝');
         return false;
       }
@@ -53,7 +54,7 @@ class ImageSaveService {
   Future<bool> saveImageFromFile(File imageFile) async {
     try {
       // 请求存储权限
-      if (!await _requestPermission()) {
+      if (!await _permissionService.requestStoragePermission()) {
         debugPrint('存储权限被拒绝');
         return false;
       }
@@ -78,7 +79,7 @@ class ImageSaveService {
   Future<bool> saveImageFromBytes(Uint8List bytes) async {
     try {
       // 请求存储权限
-      if (!await _requestPermission()) {
+      if (!await _permissionService.requestStoragePermission()) {
         debugPrint('存储权限被拒绝');
         return false;
       }
@@ -113,52 +114,13 @@ class ImageSaveService {
     }
   }
 
-  /// 请求存储权限
-  Future<bool> _requestPermission() async {
-    if (Platform.isAndroid) {
-      // Android 13+ 使用新的权限模型
-      if (await Permission.photos.isGranted) {
-        return true;
-      }
-      
-      final status = await Permission.photos.request();
-      if (status.isGranted) {
-        return true;
-      }
-
-      // 尝试旧的存储权限（Android 12 及以下）
-      if (await Permission.storage.isGranted) {
-        return true;
-      }
-      
-      final storageStatus = await Permission.storage.request();
-      return storageStatus.isGranted;
-    } else if (Platform.isIOS) {
-      if (await Permission.photos.isGranted) {
-        return true;
-      }
-      
-      final status = await Permission.photos.request();
-      return status.isGranted;
-    }
-
-    // 其他平台默认允许
-    return true;
-  }
-
   /// 检查是否有存储权限
   Future<bool> hasPermission() async {
-    if (Platform.isAndroid) {
-      return await Permission.photos.isGranted || 
-             await Permission.storage.isGranted;
-    } else if (Platform.isIOS) {
-      return await Permission.photos.isGranted;
-    }
-    return true;
+    return await _permissionService.hasStoragePermission();
   }
 
   /// 打开应用设置页面
   Future<void> openAppSettings() async {
-    await openAppSettings();
+    await _permissionService.openSettings();
   }
 }
