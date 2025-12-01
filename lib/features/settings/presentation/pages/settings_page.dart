@@ -12,6 +12,7 @@ import '../widgets/account_management_section.dart';
 import '../widgets/whitelist_management_section.dart';
 import '../widgets/ai_settings_section.dart';
 import '../widgets/email_sync_config_section.dart';
+import '../../../data_management/presentation/pages/data_management_page.dart';
 
 class SettingsPage extends ConsumerStatefulWidget {
   const SettingsPage({super.key});
@@ -189,6 +190,25 @@ class _AppSettingsSectionState extends ConsumerState<AppSettingsSection> {
               subtitle: '清除所有缓存数据',
               onTap: () {
                 _showClearCacheDialog(context);
+              },
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        _buildSettingsGroup(
+          title: '数据管理',
+          children: [
+            _buildSettingsTile(
+              icon: Icons.folder_open,
+              title: '数据管理',
+              subtitle: '导出、统计、去重和清理',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DataManagementPage(),
+                  ),
+                );
               },
             ),
           ],
