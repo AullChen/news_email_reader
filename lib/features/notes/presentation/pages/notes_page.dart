@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/models/email_message.dart';
 import '../../../../core/repositories/email_repository.dart';
@@ -189,7 +190,7 @@ class _NotesPageState extends State<NotesPage> {
               ),
               const SizedBox(height: 8),
               
-              // 笔记内容
+              // 笔记内容 - 支持 Markdown
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(12),
@@ -200,12 +201,86 @@ class _NotesPageState extends State<NotesPage> {
                     color: AppTheme.secondaryColor.withValues(alpha: 0.3),
                   ),
                 ),
-                child: Text(
-                  email.notes!,
-                  style: const TextStyle(
-                    color: AppTheme.textPrimaryColor,
-                    fontSize: 14,
-                    height: 1.4,
+                child: MarkdownBody(
+                  data: email.notes!,
+                  selectable: true,
+                  softLineBreak: true,
+                  styleSheet: MarkdownStyleSheet(
+                    // 段落样式 - 支持换行
+                    p: const TextStyle(
+                      color: AppTheme.textPrimaryColor,
+                      fontSize: 14,
+                      height: 1.6,
+                    ),
+                    // 标题样式
+                    h1: const TextStyle(
+                      color: AppTheme.textPrimaryColor,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      height: 1.3,
+                    ),
+                    h2: const TextStyle(
+                      color: AppTheme.textPrimaryColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      height: 1.3,
+                    ),
+                    h3: const TextStyle(
+                      color: AppTheme.textPrimaryColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      height: 1.3,
+                    ),
+                    // 行内代码样式 - 改进
+                    code: TextStyle(
+                      backgroundColor: const Color(0xFFF5F5F5),
+                      color: const Color(0xFFD73A49),
+                      fontFamily: 'Consolas, Monaco, monospace',
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    // 代码块样式 - 改进
+                    codeblockPadding: const EdgeInsets.all(12),
+                    codeblockDecoration: BoxDecoration(
+                      color: const Color(0xFF2D2D2D),
+                      borderRadius: BorderRadius.circular(6),
+                      border: Border.all(color: const Color(0xFF404040)),
+                    ),
+                    // 列表样式
+                    listBullet: const TextStyle(
+                      color: AppTheme.textPrimaryColor,
+                      fontSize: 14,
+                      height: 1.6,
+                    ),
+                    listIndent: 20,
+                    // 引用样式
+                    blockquote: const TextStyle(
+                      fontSize: 14,
+                      height: 1.6,
+                      color: AppTheme.textSecondaryColor,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    blockquoteDecoration: BoxDecoration(
+                      color: const Color(0xFFF8F9FA),
+                      border: const Border(
+                        left: BorderSide(
+                          color: AppTheme.primaryColor,
+                          width: 3,
+                        ),
+                      ),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    blockquotePadding: const EdgeInsets.all(10),
+                    // 链接样式
+                    a: const TextStyle(
+                      color: AppTheme.primaryColor,
+                      decoration: TextDecoration.underline,
+                    ),
+                    // 段落间距
+                    pPadding: const EdgeInsets.only(bottom: 10),
+                    h1Padding: const EdgeInsets.only(top: 12, bottom: 6),
+                    h2Padding: const EdgeInsets.only(top: 10, bottom: 4),
+                    h3Padding: const EdgeInsets.only(top: 8, bottom: 4),
                   ),
                 ),
               ),

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_windows/webview_windows.dart' as windows_webview;
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'package:share_plus/share_plus.dart';
 import 'package:html/parser.dart' show parse;
@@ -14,7 +15,7 @@ import '../../../../core/repositories/email_repository.dart';
 import '../../../../core/services/ai_service.dart';
 import '../../../../core/services/translation_service.dart';
 import '../../../../core/services/cache_service.dart';
-import '../../../notes/presentation/pages/note_editor_page.dart';
+import '../../../notes/presentation/pages/markdown_note_editor_page.dart';
 
 class EmailReaderPage extends StatefulWidget {
   final EmailMessage email;
@@ -347,7 +348,7 @@ class _EmailReaderPageState extends State<EmailReaderPage> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NoteEditorPage(email: _currentEmail),
+                      builder: (context) => MarkdownNoteEditorPage(email: _currentEmail),
                     ),
                   );
                   if (result == true) {
@@ -359,11 +360,119 @@ class _EmailReaderPageState extends State<EmailReaderPage> {
               ),
             ],
           ),
+          const SizedBox(height: 8),
+          Container(
+            padding: const EdgeInsets.all(4),
+            decoration: BoxDecoration(
+              color: AppTheme.secondaryColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.info_outline, size: 14, color: AppTheme.secondaryColor),
+                SizedBox(width: 4),
+                Text(
+                  '支持 Markdown 格式',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppTheme.secondaryColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
           const SizedBox(height: 12),
           if (_currentEmail.notes != null && _currentEmail.notes!.isNotEmpty)
-            Text(_currentEmail.notes!, style: Theme.of(context).textTheme.bodyMedium)
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: AppTheme.surfaceColor,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: AppTheme.primaryColor.withOpacity(0.2)),
+              ),
+              child: MarkdownBody(
+                data: _currentEmail.notes!,
+                selectable: true,
+                softLineBreak: true,
+                styleSheet: MarkdownStyleSheet(
+                  // 段落样式 - 支持换行
+                  p: const TextStyle(fontSize: 15, height: 1.6),
+                  // 标题样式
+                  h1: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, height: 1.3),
+                  h2: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, height: 1.3),
+                  h3: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, height: 1.3),
+                  // 行内代码样式 - 改进
+                  code: TextStyle(
+                    backgroundColor: const Color(0xFFF5F5F5),
+                    color: const Color(0xFFD73A49),
+                    fontFamily: 'Consolas, Monaco, monospace',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  // 代码块样式 - 改进
+                  codeblockPadding: const EdgeInsets.all(14),
+                  codeblockDecoration: BoxDecoration(
+                    color: const Color(0xFF2D2D2D),
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: const Color(0xFF404040)),
+                  ),
+                  // 列表样式
+                  listBullet: const TextStyle(fontSize: 15, height: 1.6),
+                  listIndent: 22,
+                  // 引用样式
+                  blockquote: const TextStyle(
+                    fontSize: 15,
+                    height: 1.6,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  blockquoteDecoration: BoxDecoration(
+                    color: const Color(0xFFF8F9FA),
+                    border: const Border(
+                      left: BorderSide(color: AppTheme.primaryColor, width: 4),
+                    ),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  blockquotePadding: const EdgeInsets.all(12),
+                  // 链接样式
+                  a: const TextStyle(
+                    color: AppTheme.primaryColor,
+                    decoration: TextDecoration.underline,
+                  ),
+                  // 段落间距
+                  pPadding: const EdgeInsets.only(bottom: 12),
+                  h1Padding: const EdgeInsets.only(top: 14, bottom: 6),
+                  h2Padding: const EdgeInsets.only(top: 12, bottom: 5),
+                  h3Padding: const EdgeInsets.only(top: 10, bottom: 4),
+                ),
+              ),
+            )
           else
-            const Text('暂无笔记', style: TextStyle(color: Colors.grey)),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: AppTheme.surfaceColor,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Colors.grey[300]!),
+              ),
+              child: const Column(
+                children: [
+                  Icon(Icons.note_add, size: 48, color: Colors.grey),
+                  SizedBox(height: 8),
+                  Text(
+                    '暂无笔记',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    '点击右上角"编辑"按钮添加笔记',
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );
@@ -425,7 +534,7 @@ class _EmailReaderPageState extends State<EmailReaderPage> {
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => NoteEditorPage(email: _currentEmail),
+                    builder: (context) => MarkdownNoteEditorPage(email: _currentEmail),
                   ),
                 );
                 if (result == true) {
